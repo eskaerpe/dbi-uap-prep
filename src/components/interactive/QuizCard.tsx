@@ -4,6 +4,7 @@ interface QuizQuestion {
   question: string
   options: string[]
   correctIndex: number
+  explanation: string
 }
 
 interface QuizCardProps {
@@ -56,10 +57,12 @@ export default function QuizCard({ question, index }: QuizCardProps) {
 
       {locked && (
         <div className={`quiz-card__feedback${isCorrect ? ' quiz-card__feedback--correct' : ' quiz-card__feedback--wrong'}`}>
-          {isCorrect
-            ? 'Benar! Bagus.'
-            : `Salah. Jawaban yang benar adalah ${LETTERS[question.correctIndex]}.`
-          }
+          <div className="quiz-card__feedback-verdict">
+            {isCorrect ? 'Benar!' : 'Salah.'}
+          </div>
+          <div className="quiz-card__feedback-detail">
+            {question.explanation}
+          </div>
         </div>
       )}
     </div>

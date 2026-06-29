@@ -870,7 +870,6 @@ pre {
   padding: 0.75rem 1rem;
   border-radius: 6px;
   font-size: 0.875rem;
-  font-weight: 500;
 }
 
 .quiz-card__feedback--correct {
@@ -881,6 +880,17 @@ pre {
 .quiz-card__feedback--wrong {
   background: var(--error-soft);
   color: var(--error);
+}
+
+.quiz-card__feedback-verdict {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.quiz-card__feedback-detail {
+  font-weight: 400;
+  line-height: 1.5;
+  opacity: 0.9;
 }
 
 .quiz-card__option-letter {
