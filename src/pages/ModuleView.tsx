@@ -149,14 +149,18 @@ export default function ModuleView() {
 
   const sections = extractSections(content)
 
-  const components: Components = {
-    code({ className, children, ...props }) {
+  const components: any = {
+    theory: TheoryBlock,
+    intuition: IntuitionBlock,
+    example: WorkedExample,
+    conclusion: ConclusionBox,
+    code({ className, children, ...props }: any) {
       if (className) {
         return <CodeBlock className={className} {...props}>{children}</CodeBlock>
       }
       return <InlineCode {...props}>{children}</InlineCode>
     },
-    h2: SectionHeading as any,
+    h2: SectionHeading,
   }
 
   return (

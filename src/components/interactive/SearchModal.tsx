@@ -98,6 +98,7 @@ export default function SearchModal({ sections, isOpen, onClose }: SearchModalPr
           />
           <input
             ref={inputRef}
+            id="search-input"
             className="search-modal__input"
             style={{ paddingLeft: '3rem' }}
             placeholder="Cari bagian..."
