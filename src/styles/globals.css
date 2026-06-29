@@ -727,7 +727,7 @@ pre {
 /* ===== Scroll To Top ===== */
 .scroll-to-top {
   position: fixed;
-  bottom: 1.5rem;
+  bottom: 4.5rem;
   right: 1.5rem;
   width: 40px;
   height: 40px;

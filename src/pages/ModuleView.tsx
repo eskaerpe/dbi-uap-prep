@@ -20,7 +20,7 @@ import FlashcardGrid from '../components/interactive/FlashcardGrid'
 import QuizCard from '../components/interactive/QuizCard'
 import ScrollToTop from '../components/ui/ScrollToTop'
 import SearchModal from '../components/interactive/SearchModal'
-import { Copy, Check } from 'lucide-react'
+import { Copy, Check, Search } from 'lucide-react'
 
 interface Section {
   id: string
@@ -204,7 +204,7 @@ export default function ModuleView() {
         style={{
           position: 'fixed',
           bottom: '1.5rem',
-          right: '5rem',
+          right: '1.5rem',
           zIndex: 40,
           width: 40,
           height: 40,
@@ -217,13 +217,10 @@ export default function ModuleView() {
           alignItems: 'center',
           justifyContent: 'center',
           boxShadow: 'var(--shadow-md)',
-          fontSize: '0.65rem',
-          fontWeight: 600,
-          fontFamily: 'var(--font-mono)',
         }}
         aria-label="Cari"
       >
-        Ctrl+K
+        <Search size={18} />
       </button>
 
       <SearchModal
