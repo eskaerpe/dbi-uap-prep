@@ -17,13 +17,13 @@ export default function Navbar() {
       <div className="navbar__right">
         {inModule && (
           <Link to="/" className="navbar__link">
-            All Modules
+            Semua Modul
           </Link>
         )}
         <button
           className="theme-toggle"
           onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          aria-label={`Ganti ke mode ${theme === 'light' ? 'gelap' : 'terang'}`}
         >
           {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
         </button>

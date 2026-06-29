@@ -10,24 +10,24 @@ export default function Home() {
   return (
     <div className="home">
       <header className="home__header">
-        <h1 className="home__title">UAP Prep</h1>
+        <h1 className="home__title">Persiapan UAP</h1>
         <p className="home__subtitle">
-          Interactive study modules for ISYS6898003 — Algorithm and Programming.
-          Sessions 6 through 12, curated for your final practical exam.
+          Modul belajar interaktif untuk ISYS6898003 — Algoritma dan Pemrograman.
+          Sesi 6 sampai 12, dikurasi khusus untuk ujian praktikum akhir.
         </p>
         <div className="home__divider" />
       </header>
 
       {comprehensiveModule && (
         <>
-          <h2 className="home__section-title">Comprehensive Review</h2>
+          <h2 className="home__section-title">Review Komprehensif</h2>
           <div className="module-grid">
             <div
               className="module-card"
               onClick={() => navigate(`/${comprehensiveModule.slug}`)}
               style={{ borderColor: 'var(--accent)', borderWidth: '2px' }}
             >
-              <div className="module-card__badge">UAP Prep</div>
+              <div className="module-card__badge">Persiapan UAP</div>
               <div className="module-card__title">{comprehensiveModule.title}</div>
               <div className="module-card__desc">{comprehensiveModule.description}</div>
               <div className="module-card__tags">
@@ -35,10 +35,10 @@ export default function Home() {
                   <span key={tag} className="module-card__tag">{tag}</span>
                 ))}
                 <span className="module-card__tag" style={{ background: 'var(--success-soft)', color: 'var(--success)' }}>
-                  Flashcards
+                  Flashcard
                 </span>
                 <span className="module-card__tag" style={{ background: 'var(--warning-soft)', color: 'var(--warning)' }}>
-                  Quiz
+                  Kuis
                 </span>
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function Home() {
       )}
 
       <h2 className="home__section-title" style={comprehensiveModule ? { marginTop: '2rem' } : {}}>
-        Sessions
+        Sesi
       </h2>
 
       <div className="module-grid">
@@ -58,13 +58,13 @@ export default function Home() {
             onClick={() => navigate(`/${mod.slug}`)}
           >
             <div className="module-card__badge">
-              {mod.slug.includes('sesi-6') ? 'Session 6' :
-               mod.slug.includes('sesi-7') ? 'Session 7' :
-               mod.slug.includes('sesi-8') ? 'Session 8' :
-               mod.slug.includes('sesi-9') ? 'Session 9' :
-               mod.slug.includes('sesi-10') ? 'Session 10' :
-               mod.slug.includes('sesi-11') ? 'Session 11' :
-               mod.slug.includes('sesi-12') ? 'Session 12' : 'Module'}
+              {mod.slug.includes('sesi-6') ? 'Sesi 6' :
+               mod.slug.includes('sesi-7') ? 'Sesi 7' :
+               mod.slug.includes('sesi-8') ? 'Sesi 8' :
+               mod.slug.includes('sesi-9') ? 'Sesi 9' :
+               mod.slug.includes('sesi-10') ? 'Sesi 10' :
+               mod.slug.includes('sesi-11') ? 'Sesi 11' :
+               mod.slug.includes('sesi-12') ? 'Sesi 12' : 'Modul'}
             </div>
             <div className="module-card__title">{mod.title}</div>
             <div className="module-card__desc">{mod.description}</div>

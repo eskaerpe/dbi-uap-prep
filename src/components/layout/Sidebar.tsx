@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowLeft, Check, X } from 'lucide-react'
+import { ArrowLeft, CheckCircle2, Circle } from 'lucide-react'
 
 export interface Section {
   id: string
@@ -41,13 +41,13 @@ export default function Sidebar({
         <div className="sidebar__header">
           <Link to="/" className="sidebar__back" onClick={onClose}>
             <ArrowLeft size={14} />
-            Back to modules
+            Kembali
           </Link>
           <div className="sidebar__title">{title}</div>
         </div>
 
         <div className="sidebar__progress">
-          <span>{completedCount}/{totalSections} completed</span>
+          <span>{completedCount}/{totalSections} selesai</span>
           <div className="sidebar__progress-bar">
             <div className="sidebar__progress-fill" style={{ width: `${progress}%` }} />
           </div>
@@ -67,24 +67,20 @@ export default function Sidebar({
                   onClose()
                 }}
               >
-                <div
-                  className={`sidebar__checkbox${isCompleted ? ' sidebar__checkbox--checked' : ''}`}
+                <button
+                  className={`sidebar__check${isCompleted ? ' sidebar__check--done' : ''}`}
                   onClick={e => {
                     e.stopPropagation()
                     onToggleComplete(section.id)
                   }}
-                  role="checkbox"
-                  aria-checked={isCompleted}
-                  tabIndex={0}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      onToggleComplete(section.id)
-                    }
-                  }}
+                  aria-label={isCompleted ? 'Tandai belum selesai' : 'Tandai selesai'}
+                  tabIndex={-1}
                 >
-                  {isCompleted && <Check size={10} strokeWidth={3} />}
-                </div>
+                  {isCompleted
+                    ? <CheckCircle2 size={16} className="sidebar__check-icon sidebar__check-icon--filled" />
+                    : <Circle size={16} className="sidebar__check-icon" />
+                  }
+                </button>
                 <span>{section.title}</span>
               </li>
             )

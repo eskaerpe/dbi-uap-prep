@@ -57,8 +57,8 @@ export default function QuizCard({ question, index }: QuizCardProps) {
       {locked && (
         <div className={`quiz-card__feedback${isCorrect ? ' quiz-card__feedback--correct' : ' quiz-card__feedback--wrong'}`}>
           {isCorrect
-            ? 'Correct! Well done.'
-            : `Incorrect. The correct answer is ${LETTERS[question.correctIndex]}.`
+            ? 'Benar! Bagus.'
+            : `Salah. Jawaban yang benar adalah ${LETTERS[question.correctIndex]}.`
           }
         </div>
       )}

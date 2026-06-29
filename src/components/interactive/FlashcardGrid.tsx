@@ -39,7 +39,7 @@ export default function FlashcardGrid({ flashcards }: FlashcardGridProps) {
 
   return (
     <div>
-      <div className="theory-block__label" style={{ marginBottom: '0.75rem' }}>Flashcards</div>
+        <div className="theory-block__label" style={{ marginBottom: '0.75rem' }}>Flashcard</div>
       <div className="flashcard-grid">
         {flashcards.map((card, i) => (
           <Flashcard key={i} card={card} />

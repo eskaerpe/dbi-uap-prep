@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
 import type { Components } from 'react-markdown'
+import Prism from 'prismjs'
+import 'prismjs/components/prism-python'
 import 'katex/dist/katex.min.css'
 
+import '../styles/vscode-dark-prism.css'
 import { modules } from '../modules/registry'
 import ModuleLayout from '../components/layout/ModuleLayout'
 import TheoryBlock from '../components/content/TheoryBlock'
@@ -27,9 +30,16 @@ interface Section {
 
 function CodeBlock({ className, children, ...props }: any) {
   const [copied, setCopied] = useState(false)
+  const codeRef = useRef<HTMLElement>(null)
   const match = /language-(\w+)/.exec(className || '')
   const lang = match ? match[1] : 'python'
   const code = String(children).replace(/\n$/, '')
+
+  useEffect(() => {
+    if (codeRef.current) {
+      Prism.highlightElement(codeRef.current)
+    }
+  }, [code])
 
   const copy = async () => {
     await navigator.clipboard.writeText(code)
@@ -43,11 +53,11 @@ function CodeBlock({ className, children, ...props }: any) {
         <span>{lang}</span>
         <button className="code-block__copy" onClick={copy}>
           {copied ? <Check size={13} /> : <Copy size={13} />}
-          {copied ? 'Copied' : 'Copy'}
+          {copied ? 'Disalin' : 'Salin'}
         </button>
       </div>
       <pre>
-        <code className={className} {...props}>{children}</code>
+        <code ref={codeRef} className={className} {...props}>{children}</code>
       </pre>
     </div>
   )
@@ -132,7 +142,7 @@ export default function ModuleView() {
   if (loading) {
     return (
       <div className="home">
-        <p style={{ color: 'var(--text-secondary)' }}>Loading module...</p>
+        <p style={{ color: 'var(--text-secondary)' }}>Memuat modul...</p>
       </div>
     )
   }
@@ -174,7 +184,7 @@ export default function ModuleView() {
               className="section-heading"
               style={{ fontSize: '1.25rem', borderBottom: 'none' }}
             >
-              Practice Quiz
+              Kuis Latihan
             </div>
             {mod.quiz.map((q, i) => (
               <QuizCard key={i} question={q} index={i + 1} />
@@ -207,7 +217,7 @@ export default function ModuleView() {
           fontWeight: 600,
           fontFamily: 'var(--font-mono)',
         }}
-        aria-label="Search"
+        aria-label="Cari"
       >
         Ctrl+K
       </button>

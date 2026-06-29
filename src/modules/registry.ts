@@ -19,7 +19,7 @@ function createModule(slug: string): ModuleConfig {
 
   const loadContent = async () => {
     const loader = moduleFiles[path]
-    if (!loader) return '# Module not found'
+    if (!loader) return '# Module tidak ditemukan'
     const md = await loader()
     return md
   }
@@ -31,143 +31,143 @@ const rawModules: ModuleConfig[] = [
   {
     ...createModule('sesi-6-data-structures'),
     slug: 'sesi-6-data-structures',
-    title: 'Data Structures',
-    description: 'Tuple, Set, Dictionary, List basics, Indexing and Slicing',
-    tags: ['Python', 'Data Structures', 'Tuple', 'Set', 'Dictionary', 'List'],
+    title: 'Struktur Data',
+    description: 'Tuple, Set, Dictionary, List dasar, Indexing dan Slicing',
+    tags: ['Python', 'Struktur Data', 'Tuple', 'Set', 'Dictionary', 'List'],
     features: { quiz: false, flashcards: false },
   },
   {
     ...createModule('sesi-7-functions'),
     slug: 'sesi-7-functions',
-    title: 'Functions',
-    description: 'Defining functions, arguments, return values, passing lists',
-    tags: ['Python', 'Functions', 'Arguments', 'Parameters'],
+    title: 'Fungsi',
+    description: 'Mendefinisikan fungsi, argumen, nilai kembali, melewatkan list',
+    tags: ['Python', 'Fungsi', 'Argumen', 'Parameter'],
     features: { quiz: false, flashcards: false },
   },
   {
     ...createModule('sesi-8-file-exceptions'),
     slug: 'sesi-8-file-exceptions',
-    title: 'File I/O and Exceptions',
-    description: 'File reading/writing, exception handling, context managers',
-    tags: ['Python', 'File I/O', 'Exceptions', 'Error Handling'],
+    title: 'File I/O dan Exception',
+    description: 'Membaca/menulis file, penanganan exception, context manager',
+    tags: ['Python', 'File I/O', 'Exception', 'Error Handling'],
     features: { quiz: false, flashcards: false },
   },
   {
     ...createModule('sesi-9-classes-oop'),
     slug: 'sesi-9-classes-oop',
-    title: 'Classes in Python',
-    description: 'OOP principles, class definition, encapsulation, special methods',
-    tags: ['Python', 'OOP', 'Classes', 'Encapsulation'],
+    title: 'Class di Python',
+    description: 'Prinsip OOP, definisi class, enkapsulasi, method spesial',
+    tags: ['Python', 'OOP', 'Class', 'Enkapsulasi'],
     features: { quiz: false, flashcards: false },
   },
   {
     ...createModule('sesi-10-search-sort'),
     slug: 'sesi-10-search-sort',
-    title: 'Searching and Sorting',
+    title: 'Searching dan Sorting',
     description: 'Linear search, binary search, bubble/selection/insertion/quick/merge sort',
-    tags: ['Python', 'Algorithms', 'Searching', 'Sorting', 'Big O'],
+    tags: ['Python', 'Algoritma', 'Searching', 'Sorting', 'Big O'],
     features: { quiz: false, flashcards: false },
   },
   {
     ...createModule('sesi-11-review'),
     slug: 'sesi-11-review',
-    title: 'Comprehensive Review',
-    description: 'Integrated review of Sessions 7-10 with complete project examples',
-    tags: ['Python', 'Review', 'Integration', 'Projects'],
+    title: 'Review Komprehensif',
+    description: 'Review terintegrasi Sesi 7-10 dengan contoh project lengkap',
+    tags: ['Python', 'Review', 'Integrasi', 'Project'],
     features: { quiz: false, flashcards: false },
   },
   {
     ...createModule('sesi-12-uap'),
     slug: 'sesi-12-uap',
-    title: 'UAP Final Exam',
-    description: 'Sample exam questions, solutions, tips, common mistakes, and grading criteria',
-    tags: ['Python', 'Exam', 'UAP', 'Practice'],
+    title: 'UAP Final',
+    description: 'Contoh soal ujian, solusi, tips, kesalahan umum, dan kriteria penilaian',
+    tags: ['Python', 'Ujian', 'UAP', 'Latihan'],
     features: { quiz: false, flashcards: false },
   },
   {
     ...createModule('uap-prep-comprehensive'),
     slug: 'uap-prep-comprehensive',
-    title: 'UAP Comprehensive Prep',
-    description: 'All topics from Sessions 6-12 combined with flashcards and quiz',
-    tags: ['UAP', 'Comprehensive', 'All Topics'],
+    title: 'Persiapan UAP Komprehensif',
+    description: 'Semua topik dari Sesi 6-12 digabung dengan flashcard dan kuis',
+    tags: ['UAP', 'Komprehensif', 'Semua Topik'],
     features: { quiz: true, flashcards: true },
   },
 ]
 
-// Set up quiz/flashcards for comprehensive module
+// Setup kuis dan flashcard untuk modul komprehensif
 const uapComprehensive = rawModules.find(m => m.slug === 'uap-prep-comprehensive')
 if (uapComprehensive) {
   uapComprehensive.flashcards = [
     {
       front: 'Tuple',
-      back: 'Ordered, immutable, allows duplicates. Use () syntax.',
+      back: 'Terurut, immutable, mengizinkan duplikat. Gunakan sintaks ().',
     },
     {
       front: 'Set',
-      back: 'Unordered, mutable, no duplicates, elements must be immutable. Use {} syntax.',
+      back: 'Tidak terurut, mutable, tanpa duplikat, elemen harus immutable. Gunakan sintaks {}.',
     },
     {
       front: 'Dictionary',
-      back: 'Key-value pairs, unique keys, mutable. Use {key: value} syntax.',
+      back: 'Pasangan key-value, key unik, mutable. Gunakan sintaks {key: value}.',
     },
     {
       front: '*args',
-      back: 'Allows passing any number of positional arguments to a function.',
+      back: 'Mengizinkan jumlah argumen posisi tak terbatas ke dalam fungsi.',
     },
     {
       front: '**kwargs',
-      back: 'Allows passing any number of keyword arguments to a function.',
+      back: 'Mengizinkan jumlah argumen keyword tak terbatas ke dalam fungsi.',
     },
     {
-      front: 'Binary Search Complexity',
-      back: 'O(log n) — requires sorted list.',
+      front: 'Kompleksitas Binary Search',
+      back: 'O(log n) — membutuhkan list terurut.',
     },
     {
-      front: 'Quick Sort Complexity',
-      back: 'O(n log n) average, O(n²) worst case.',
+      front: 'Kompleksitas Quick Sort',
+      back: 'Rata-rata O(n log n), kasus terburuk O(n²).',
     },
     {
-      front: 'Merge Sort Complexity',
-      back: 'O(n log n) guaranteed, O(n) space.',
+      front: 'Kompleksitas Merge Sort',
+      back: 'O(n log n) terjamin, ruang O(n).',
     },
     {
-      front: 'Encapsulation',
-      back: 'Bundling data and methods; hiding internal details. Private: __var, Protected: _var.',
+      front: 'Enkapsulasi',
+      back: 'Menggabungkan data dan method; menyembunyikan detail internal. Private: __var, Protected: _var.',
     },
     {
       front: 'Context Manager',
-      back: 'with statement — automatically closes files, even on exceptions.',
+      back: 'Pernyataan with — otomatis menutup file, bahkan saat exception.',
     },
   ]
 
   uapComprehensive.quiz = [
     {
-      question: 'Which data structure is immutable?',
+      question: 'Struktur data mana yang bersifat immutable?',
       options: ['List', 'Dictionary', 'Tuple', 'Set'],
       correctIndex: 2,
     },
     {
-      question: 'What is the time complexity of binary search?',
+      question: 'Apa kompleksitas waktu binary search?',
       options: ['O(1)', 'O(n)', 'O(log n)', 'O(n²)'],
       correctIndex: 2,
     },
     {
-      question: 'Which sort algorithm has guaranteed O(n log n) time?',
+      question: 'Algoritma sorting mana yang memiliki jaminan O(n log n)?',
       options: ['Bubble Sort', 'Quick Sort', 'Merge Sort', 'Selection Sort'],
       correctIndex: 2,
     },
     {
-      question: 'Which keyword is used to define a function in Python?',
+      question: 'Keyword apa yang digunakan untuk mendefinisikan fungsi di Python?',
       options: ['function', 'def', 'func', 'define'],
       correctIndex: 1,
     },
     {
-      question: 'What does the with statement do?',
+      question: 'Apa fungsi dari pernyataan with?',
       options: [
-        'Defines a new variable',
-        'Handles exceptions',
-        'Automatically closes files',
-        'Creates a loop',
+        'Mendefinisikan variabel baru',
+        'Menangani exception',
+        'Otomatis menutup file',
+        'Membuat perulangan',
       ],
       correctIndex: 2,
     },

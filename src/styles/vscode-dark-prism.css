@@ -1,0 +1,99 @@
+/* VS Code Default Dark theme for Prism (Python-focused) */
+/* Background: #1e1e1e, Text: #d4d4d4 */
+
+.code-block {
+  --code-bg: #1e1e1e;
+  --code-text: #d4d4d4;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6a9955;
+}
+
+.token.punctuation {
+  color: #d4d4d4;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #b5cea8;
+}
+
+.token.selector,
+.token.attr-name,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #dcdcaa;
+}
+
+.token.string {
+  color: #ce9178;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #d4d4d4;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #569cd6;
+}
+
+.token.function,
+.token.maybe-class-name {
+  color: #dcdcaa;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #9cdcfe;
+}
+
+.token.class-name,
+.token.builtin.class-name {
+  color: #4ec9b0;
+}
+
+.token.decorator,
+.token.decorator-function {
+  color: #c586c0;
+}
+
+.token.important {
+  font-weight: inherit;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* Code block background extends to full block */
+.code-block pre {
+  background: #1e1e1e !important;
+}
+
+.code-block code {
+  color: #d4d4d4;
+  background: transparent !important;
+}

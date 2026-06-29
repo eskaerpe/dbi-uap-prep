@@ -1,48 +1,48 @@
 ## Tuple
 
 <Intuition>
-Think of a tuple as a sealed envelope. You can look at what's inside, but once sealed, you cannot add, remove, or change its contents. It's a fixed snapshot of data that stays the same throughout your program.
+Bayangkan tuple seperti amplop tersegel. Kamu bisa melihat isinya, tetapi setelah tersegel, kamu tidak bisa menambah, menghapus, atau mengubah isinya. Ini adalah snapshot data tetap yang tidak berubah sepanjang program.
 </Intuition>
 
 <Theory>
-A **tuple** is an ordered, immutable collection that allows duplicate values. Once created, the contents cannot be added, reduced, or replaced.
+<strong>Tuple</strong> adalah koleksi terurut dan <em>immutable</em> yang mengizinkan nilai duplikat. Setelah dibuat, isinya tidak bisa ditambah, dikurangi, atau diganti.
 
 ```python
-nametuple = (data0, data1, ..., datan)
+namatuple = (data0, data1, ..., datan)
 ```
 
-Elements can have different data types:
+Elemen bisa memiliki tipe data berbeda:
 
 ```python
 my_Tuple = ("HIT", 1, True)
 ```
 </Theory>
 
-### Operations
+### Operasi
 
 <Theory>
-**Unpacking** — assign tuple elements to individual variables:
+<strong>Unpacking</strong> — menyalin elemen tuple ke variabel individual:
 
 ```python
 mahasiswa = ("Ajax", 2902611111, "LXZ300", True)
 nama, nim, kelas, status = mahasiswa
 ```
 
-**.index()** — find position of a value:
+<strong>.index()</strong> — mencari posisi suatu nilai:
 
 ```python
 mahasiswa = ("Ajax", 2902611111, "LXZ300", True)
 x = mahasiswa.index("Ajax")  # 0
 ```
 
-**.count()** — count occurrences of a value:
+<strong>.count()</strong> — menghitung berapa kali nilai muncul:
 
 ```python
 mahasiswa = ("Ajax", 2902611111, "LXZ300", True)
 x = mahasiswa.count("Ajax")  # 1
 ```
 
-**in** — check if value exists (returns bool):
+<strong>in</strong> — mengecek apakah nilai ada (hasil bool):
 
 ```python
 mahasiswa = ("Ajax", 2902611111, "LXZ300", True)
@@ -51,7 +51,7 @@ x = "Ajax" in mahasiswa  # True
 </Theory>
 
 <Conclusion>
-Tuples are ideal for fixed data that should not change — like coordinates, database records, or function return values. They are memory-efficient and can be used as dictionary keys.
+Tuple cocok untuk data tetap yang tidak boleh berubah — seperti koordinat, record database, atau nilai kembalian fungsi. Tuple hemat memori dan bisa digunakan sebagai key dictionary.
 </Conclusion>
 
 ---
@@ -59,11 +59,11 @@ Tuples are ideal for fixed data that should not change — like coordinates, dat
 ## Set
 
 <Intuition>
-Imagine a bag of marbles where duplicates instantly vanish, and the marbles randomly rearrange every time you look. You can add new marbles or throw some away, but you can't point to a specific position and say "this one is at position 2."
+Bayangkan sekantong kelereng di mana kelereng duplikat langsung lenyap, dan kelerengnya acak setiap kali kamu lihat. Kamu bisa menambah atau membuang kelereng, tapi tidak bisa menunjuk posisi tertentu dan berkata "yang ini di posisi 2."
 </Intuition>
 
 <Theory>
-A **set** is an unordered, mutable collection with no duplicates. Elements must be **immutable** (int, string, tuple, bool, float). Sets are not subscriptable — you cannot access by index.
+<strong>Set</strong> adalah koleksi tidak terurut dan <em>mutable</em> tanpa duplikat. Elemen harus <strong>immutable</strong> (int, string, tuple, bool, float). Set tidak bisa diakses dengan index — tidak subscriptable.
 
 ```python
 namaset = {data1, data2, data3, ..., datan}
@@ -74,29 +74,29 @@ my_Set = {1, 2, 3, "Hello", (True, False)}
 ```
 </Theory>
 
-### Characteristics in Action
+### Karakteristik
 
 <Example>
-**Unordered** — don't depend on position:
+<strong>Tidak terurut</strong> — jangan bergantung pada posisi:
 
 ```python
 my_Set = {5, 1, 100, 42, 7, 3}
 print(my_Set)
-# Output might be: {1, 3, 100, 5, 7, 42}
+# Output bisa: {1, 3, 100, 5, 7, 42}
 print(my_Set[1])  # TypeError!
 ```
 
-**Elements must be immutable:**
+<strong>Elemen harus immutable:</strong>
 
 ```python
 # Valid:
-my_Set = {5, 1, (1,2,3), 42, 7, 3}  # tuple OK
+my_Set = {5, 1, (1,2,3), 42, 7, 3}  # tuple diperbolehkan
 
 # Error:
 my_Set = {5, 1, [1,2,3], 42, 7, 3}  # TypeError
 ```
 
-**No duplicates:**
+<strong>Tidak ada duplikat:</strong>
 
 ```python
 my_Set = {1, 1, 1, 2, 2, 3, 4, 5, 5}
@@ -104,42 +104,42 @@ print(my_Set)  # {1, 2, 3, 4, 5}
 ```
 </Example>
 
-### Operations
+### Operasi
 
 <Theory>
-**.add()** — add an element:
+<strong>.add()</strong> — menambah elemen:
 
 ```python
 my_Set = {1, 2, 3}
 my_Set.add(4)
 ```
 
-**.remove()** — remove by value (error if not found):
+<strong>.remove()</strong> — menghapus berdasarkan nilai (error jika tidak ditemukan):
 
 ```python
 my_Set = {1, 2, 3}
 my_Set.remove(1)
 ```
 
-**.discard()** — remove by value (no error if not found):
+<strong>.discard()</strong> — menghapus berdasarkan nilai (tanpa error jika tidak ada):
 
 ```python
 my_Set = {1, 2, 3}
 my_Set.discard(1)
 ```
 
-**.pop()** — remove and return an **arbitrary** element:
+<strong>.pop()</strong> — menghapus dan mengembalikan elemen <strong>acak</strong>:
 
 ```python
 my_Set = {1, 2, 3}
 my_Set.pop()
 ```
 
-**.clear()** — remove all elements.
+<strong>.clear()</strong> — menghapus semua elemen.
 </Theory>
 
 <Conclusion>
-Sets excel at membership tests, deduplication, and mathematical set operations (union, intersection). Use them when order doesn't matter and you need fast lookups.
+Set unggul untuk pengecekan keanggotaan, menghilangkan duplikat, dan operasi himpunan matematis (union, intersection). Gunakan saat urutan tidak penting dan kamu butuh pencarian cepat.
 </Conclusion>
 
 ---
@@ -147,11 +147,11 @@ Sets excel at membership tests, deduplication, and mathematical set operations (
 ## Dictionary
 
 <Intuition>
-A dictionary is like a real dictionary: you look up a word (key) to find its definition (value). You can add new words, update definitions, or remove entries. Every key must be unique — like no two words being spelled exactly the same.
+Dictionary seperti kamus sungguhan: kamu mencari kata (key) untuk menemukan artinya (value). Kamu bisa menambah kata baru, memperbarui definisi, atau menghapus entri. Setiap key harus unik — seperti tidak ada dua kata yang ejaannya persis sama.
 </Intuition>
 
 <Theory>
-A **dictionary** stores key-value pairs. Keys must be unique and immutable. Values can be any type and can be duplicated.
+<strong>Dictionary</strong> menyimpan pasangan key-value. Key harus unik dan immutable. Value bisa tipe apa saja dan boleh duplikat.
 
 ```python
 namadictionary = {key1: value1, key2: value2, ..., keyn: valuen}
@@ -161,49 +161,49 @@ namadictionary = {key1: value1, key2: value2, ..., keyn: valuen}
 my_Dictionary = {"nama": "Ajax", "NIM": 2902611111}
 ```
 
-**Characteristics:**
-- Key-Value pair: every key must have a value
-- Unique keys: duplicate keys overwrite the old value
-- Mutable: pairs can be added, values can change
+<strong>Karakteristik:</strong>
+- Pasangan Key-Value: setiap key harus memiliki value
+- Key unik: key duplikat akan menimpa value lama
+- Mutable: pasangan bisa ditambah, value bisa diubah
 </Theory>
 
-### Operations
+### Operasi
 
 <Theory>
-**Access by key:**
+<strong>Akses berdasarkan key:</strong>
 
 ```python
 my_Dictionary = {"nama": "Ajax", "NIM": 2902611111}
-x = my_Dictionary["NIM"]   # 2902611111 (error if missing)
-x = my_Dictionary.get("NIM")  # 2902611111 (None if missing)
+x = my_Dictionary["NIM"]   # 2902611111 (error jika tidak ada)
+x = my_Dictionary.get("NIM")  # 2902611111 (None jika tidak ada)
 ```
 
-**Add / Update:**
+<strong>Tambah / Ubah:</strong>
 
 ```python
-# Add
+# Tambah
 my_Dictionary["Kelas"] = "LXZ300"
 
-# Update
+# Ubah
 my_Dictionary["nama"] = "Leon"
 
-# Update multiple
+# Ubah beberapa sekaligus
 my_Dictionary.update({"nama": "Leon", "Kelas": "LXZ300"})
 ```
 
-**Delete:**
+<strong>Hapus:</strong>
 
 ```python
-del my_Dictionary["NIM"]           # Delete key-value pair
-x = my_Dictionary.pop("nama")      # Delete and return value
-my_Dictionary.clear()              # Remove all
+del my_Dictionary["NIM"]           # Hapus pasangan key-value
+x = my_Dictionary.pop("nama")      # Hapus dan kembalikan value
+my_Dictionary.clear()              # Hapus semua
 ```
 </Theory>
 
 <Example>
-**Login Checker Exercise:**
+<strong>Latihan Cek Login:</strong>
 
-Create a program that checks username and password against a dictionary:
+Buat program yang memeriksa username dan password terhadap dictionary:
 
 ```python
 user = {
@@ -215,135 +215,135 @@ username = input("Username: ")
 password = input("Password: ")
 
 if username not in user:
-    print("username not found")
+    print("username tidak ditemukan")
 elif user[username] != password:
-    print("password incorrect")
+    print("password salah")
 else:
     print("Selamat datang")
 ```
 </Example>
 
 <Conclusion>
-Dictionaries are Python's most versatile data structure for mapping relationships. Use them for lookups, counting frequencies, storing structured data, and grouping related values.
+Dictionary adalah struktur data paling serbaguna di Python untuk memetakan hubungan. Gunakan untuk pencarian, menghitung frekuensi, menyimpan data terstruktur, dan mengelompokkan nilai terkait.
 </Conclusion>
 
 ---
 
-## List — Basics
+## List — Dasar
 
 <Intuition>
-A list is like a train with carriages. You can add new carriages, remove old ones, change what's inside a carriage, and the order of carriages stays the same. Multiple carriages can carry identical cargo.
+List seperti kereta api dengan gerbong. Kamu bisa menambah gerbong baru, melepas yang lama, mengubah isi gerbong, dan urutan gerbong tetap sama. Beberapa gerbong bisa membawa muatan yang identik.
 </Intuition>
 
 <Theory>
-A **list** is an ordered, mutable collection that allows duplicates.
+<strong>List</strong> adalah koleksi terurut, <em>mutable</em>, dan mengizinkan duplikat.
 
 ```python
 namalist = [item1, item2, ..., itemn]
 ```
 
-**Characteristics:**
-- **Ordered** — elements keep their insertion order
-- **Changeable** — can add, remove, and modify elements
-- **Allows duplicates** — same value can appear multiple times
+<strong>Karakteristik:</strong>
+- <strong>Terurut</strong> — elemen mempertahankan urutan saat dimasukkan
+- <strong>Bisa diubah</strong> — bisa menambah, menghapus, dan mengubah elemen
+- <strong>Mengizinkan duplikat</strong> — nilai yang sama bisa muncul berkali-kali
 </Theory>
 
-### Operations
+### Operasi
 
 <Theory>
-**Insert** at specific index:
+<strong>Insert</strong> di index tertentu:
 
 ```python
 mahasiswa = ["Lucy", 2902512345, 3.98]
 mahasiswa.insert(1, "Grace")
-# Result: ["Lucy", "Grace", 2902512345, 3.98]
+# Hasil: ["Lucy", "Grace", 2902512345, 3.98]
 ```
 
-**Update** by index:
+<strong>Update</strong> berdasarkan index:
 
 ```python
 mahasiswa[0] = "Natori"
-# Result: ["Natori", 2902512345, 3.98]
+# Hasil: ["Natori", 2902512345, 3.98]
 ```
 
-**Delete:**
+<strong>Hapus:</strong>
 
 ```python
-# By value (removes first occurrence)
+# Berdasarkan nilai (hapus kemunculan pertama)
 mahasiswa.remove(3.98)
 
-# By index
+# Berdasarkan index
 mahasiswa.pop(2)
 ```
 </Theory>
 
 <Example>
-**YouTube Video Tracker:**
+<strong>Pelacak Video YouTube:</strong>
 
-Track statistics for a YouTube video using list operations:
+Lacak statistik video YouTube menggunakan operasi list:
 
 ```python
-# Initial: [title, viewers, likes, dislikes]
-video = ["My first video", 1000, 30, 4]
+# Awal: [judul, penonton, like, dislike]
+video = ["Video pertamaku", 1000, 30, 4]
 
-# 1. Update viewer count (1000 → 1050)
+# 1. Update jumlah penonton (1000 → 1050)
 video[1] = 1050
 
-# 2. Remove dislikes
+# 2. Hapus dislike
 video.pop(3)
 
-# 3. Add subscribe status
+# 3. Tambah status subscribe
 video.append(True)
 
 print(video)
-# ['My first video', 1050, 30, True]
+# ['Video pertamaku', 1050, 30, True]
 ```
 </Example>
 
 ---
 
-## List — Indexing and Slicing
+## List — Indexing dan Slicing
 
 <Intuition>
-Think of a list as a row of numbered lockers. Indexing picks one specific locker. Slicing grabs a continuous section — "give me lockers 3 through 7" — like pulling books off a shelf from a certain position to another.
+Anggap list sebagai deretan loker bernomor. Indexing memilih satu loker tertentu. Slicing mengambil bagian bersambungan — "beri saya loker 3 sampai 7" — seperti mengambil buku dari rak dari posisi tertentu ke posisi lain.
 </Intuition>
 
 <Theory>
-**Indexing** — get value at a position:
+<strong>Indexing</strong> — ambil nilai di suatu posisi:
 
 ```python
-thislist = ["apple", "banana", "cherry"]
-print(thislist[1])  # banana
+thislist = ["apel", "pisang", "ceri"]
+print(thislist[1])  # pisang
 ```
 
-**Getting index by value:**
+<strong>Mencari index berdasarkan nilai:</strong>
 
 ```python
-x = thislist.index("banana")  # 1
+x = thislist.index("pisang")  # 1
 ```
 
-**Slicing** — get a sublist:
+<strong>Slicing</strong> — ambil sublist:
 
 ```python
-namalist[start:end]  # end is exclusive
+namalist[mulai:akhir]  # akhir tidak termasuk
 ```
 
 ```python
-thislist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
-print(thislist[2:6])   # ['cherry', 'orange', 'kiwi', 'melon']
-print(thislist[2:])    # ['cherry', 'orange', 'kiwi', 'melon', 'mango']
-print(thislist[:6])    # ['apple', 'banana', 'cherry', 'orange', 'kiwi', 'melon']
+thislist = ["apel", "pisang", "ceri", "jeruk", "kiwi", "melon", "mangga"]
+print(thislist[2:6])   # ['ceri', 'jeruk', 'kiwi', 'melon']
+print(thislist[2:])    # ['ceri', 'jeruk', 'kiwi', 'melon', 'mangga']
+print(thislist[:6])    # ['apel', 'pisang', 'ceri', 'jeruk', 'kiwi', 'melon']
 ```
 </Theory>
 
 <Example>
-**Range Slice Exercise:**
+<strong>Latihan Range Slice:</strong>
 
 ```python
 examplelist = ["a", "b", "c", "d", "e", "f", "g", "h"]
 
-start_val = input("Start: ")  # c
-end_val = input("End: ")      # g
+start_val = input("Mulai: ")  # c
+end_val = input("Akhir: ")    # g
 
 start_idx = examplelist.index(start_val)
 end_idx = examplelist.index(end_val)
@@ -354,12 +354,12 @@ print(result)  # ['c', 'd', 'e', 'f', 'g']
 </Example>
 
 <Conclusion>
-Indexing and slicing provide precise data access. Slicing with [start:end] is fundamental to Python — it also works on strings, tuples, and any sequence type.
+Indexing dan slicing memberikan akses data yang presisi. Slicing dengan [start:end] fundamental di Python — juga bekerja pada string, tuple, dan tipe sequence lainnya.
 </Conclusion>
 
 ---
 
-## References
+## Referensi
 
 - https://www.w3schools.com/python/
 - Kong, Q., Siauw, T., and Bayen, A. M. (2021). Python Programming and Numerical Methods.

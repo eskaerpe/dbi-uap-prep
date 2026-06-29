@@ -16,7 +16,16 @@ interface SearchModalProps {
 export default function SearchModal({ sections, isOpen, onClose }: SearchModalProps) {
   const [query, setQuery] = useState('')
   const [activeIdx, setActiveIdx] = useState(0)
+  const [closing, setClosing] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  const handleClose = useCallback(() => {
+    setClosing(true)
+    setTimeout(() => {
+      setClosing(false)
+      onClose()
+    }, 150)
+  }, [onClose])
 
   const results: SearchResult[] = query
     ? sections
@@ -43,7 +52,7 @@ export default function SearchModal({ sections, isOpen, onClose }: SearchModalPr
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        onClose()
+        handleClose()
         return
       }
       if (e.key === 'ArrowDown') {
@@ -57,10 +66,10 @@ export default function SearchModal({ sections, isOpen, onClose }: SearchModalPr
       if (e.key === 'Enter' && results[activeIdx]) {
         const section = document.getElementById(results[activeIdx].sectionId)
         section?.scrollIntoView({ behavior: 'smooth' })
-        onClose()
+        handleClose()
       }
     },
-    [results, activeIdx, onClose]
+    [results, activeIdx, handleClose]
   )
 
   useEffect(() => {
@@ -70,10 +79,10 @@ export default function SearchModal({ sections, isOpen, onClose }: SearchModalPr
     }
   }, [isOpen, handleKeyDown])
 
-  if (!isOpen) return null
+  if (!isOpen && !closing) return null
 
   return (
-    <div className="search-overlay" onClick={onClose}>
+    <div className={`search-overlay${closing ? ' search-overlay--closing' : ''}`} onClick={handleClose}>
       <div className="search-modal" onClick={e => e.stopPropagation()}>
         <div style={{ position: 'relative' }}>
           <Search
@@ -91,7 +100,7 @@ export default function SearchModal({ sections, isOpen, onClose }: SearchModalPr
             ref={inputRef}
             className="search-modal__input"
             style={{ paddingLeft: '3rem' }}
-            placeholder="Search sections..."
+            placeholder="Cari bagian..."
             value={query}
             onChange={e => setQuery(e.target.value)}
           />
@@ -100,7 +109,7 @@ export default function SearchModal({ sections, isOpen, onClose }: SearchModalPr
         <div className="search-modal__results">
           {query && results.length === 0 && (
             <div className="search-modal__empty">
-              No results found for &ldquo;{query}&rdquo;
+              Tidak ada hasil untuk &ldquo;{query}&rdquo;
             </div>
           )}
           {results.map((r, i) => (
@@ -109,7 +118,7 @@ export default function SearchModal({ sections, isOpen, onClose }: SearchModalPr
               className={`search-modal__result${i === activeIdx ? ' search-modal__result--active' : ''}`}
               onClick={() => {
                 document.getElementById(r.sectionId)?.scrollIntoView({ behavior: 'smooth' })
-                onClose()
+                handleClose()
               }}
             >
               <div className="search-modal__result-heading">{r.sectionTitle}</div>
