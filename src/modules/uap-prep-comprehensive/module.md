@@ -1,6 +1,5 @@
 ## Data Structures (Sesi 6)
 
-<Theory>
 <strong>Tuple:</strong> Koleksi terurut dan <em>immutable</em>, mengizinkan duplikat. Gunakan <strong>()</strong>.
 
 ```python
@@ -29,13 +28,11 @@ my_list = ["apel", "pisang", "ceri"]
 my_list[1]     # pisang
 my_list[2:6]   # slicing
 ```
-</Theory>
 
 ---
 
 ## Functions (Sesi 7)
 
-<Theory>
 <strong>Mendefinisikan Fungsi:</strong>
 
 ```python
@@ -55,13 +52,11 @@ def sum_all(*angka):
 ```
 
 <strong>List sebagai Argumen:</strong> List bersifat mutable — perubahan di dalam fungsi memengaruhi original.
-</Theory>
 
 ---
 
 ## File I/O dan Exception (Sesi 8)
 
-<Theory>
 <strong>Context Manager (with):</strong>
 
 ```python
@@ -83,13 +78,11 @@ finally:
 ```
 
 <strong>Exception Umum:</strong> FileNotFoundError, ValueError, KeyError, IndexError, TypeError
-</Theory>
 
 ---
 
 ## OOP (Sesi 9)
 
-<Theory>
 <strong>Class Dasar:</strong>
 
 ```python
@@ -107,13 +100,11 @@ class Mahasiswa:
 
 <strong>Encapsulation:</strong> __var (private), _var (protected), @property decorator
 <strong>Special Methods:</strong> __init__, __str__, __len__, __eq__, __getitem__
-</Theory>
 
 ---
 
 ## Searching & Sorting (Sesi 10)
 
-<Theory>
 <strong>Linear Search — O(n):</strong>
 
 ```python
@@ -130,13 +121,11 @@ def linear_search(lst, target):
 <strong>Quick Sort — O(n log n):</strong> Divide-and-conquer, general purpose.
 <strong>Merge Sort — O(n log n):</strong> Stable sort, jaminan performa.
 <strong>Python Built-in:</strong> sorted() dan .sort() untuk production.
-</Theory>
 
 ---
 
 ## Tips Ujian
 
-<Conclusion>
 <strong>Best Practices Ujian:</strong>
 1. Baca soal teliti, rencanakan sebelum coding
 2. Gunakan <strong>with</strong> untuk file operations
@@ -148,4 +137,3 @@ def linear_search(lst, target):
 8. Dokumentasikan fungsi dengan docstring
 
 <strong>Ingat:</strong> Solusi terbaik adalah yang bekerja benar, mudah dipahami, dan efisien.
-</Conclusion>
