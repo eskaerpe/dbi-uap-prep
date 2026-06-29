@@ -12,15 +12,14 @@ export default function Home() {
       <header className="home__header">
         <h1 className="home__title">Persiapan UAP</h1>
         <p className="home__subtitle">
-          Modul belajar interaktif untuk ISYS6898003 — Algoritma dan Pemrograman.
-          Sesi 6 sampai 12, dikurasi khusus untuk ujian praktikum akhir.
+          Materi lengkap ISYS6898003 — Algoritma dan Pemrograman.
         </p>
         <div className="home__divider" />
       </header>
 
       {comprehensiveModule && (
         <>
-          <h2 className="home__section-title">Review Komprehensif</h2>
+          <h2 className="home__section-title">Quick Review</h2>
           <div className="module-grid">
             <div
               className="module-card"
@@ -37,9 +36,40 @@ export default function Home() {
                 <span className="module-card__tag" style={{ background: 'var(--success-soft)', color: 'var(--success)' }}>
                   Flashcard
                 </span>
+              </div>
+            </div>
+            <div
+              className="module-card"
+              onClick={() => navigate('/quiz')}
+              style={{ borderColor: 'var(--warning)', borderWidth: '2px' }}
+            >
+              <div className="module-card__badge">Kuis Teori</div>
+              <div className="module-card__title">Kuis Latihan 30 Soal</div>
+              <div className="module-card__desc">
+                Uji pemahaman Sesi 6-10 dengan 30 soal pilihan ganda lengkap dengan penjelasan
+              </div>
+              <div className="module-card__tags">
                 <span className="module-card__tag" style={{ background: 'var(--warning-soft)', color: 'var(--warning)' }}>
-                  Kuis
+                  30 Soal
                 </span>
+                <span className="module-card__tag">Teori</span>
+              </div>
+            </div>
+            <div
+              className="module-card"
+              onClick={() => navigate('/quiz/practice')}
+              style={{ borderColor: 'var(--error)', borderWidth: '2px' }}
+            >
+              <div className="module-card__badge">Kuis Praktik</div>
+              <div className="module-card__title">Kuis Coding 30 Soal</div>
+              <div className="module-card__desc">
+                Soal coding langsung — baca kode, prediksi output, perbaiki bug, dan implementasi fungsi. Persiapan ujian praktek Python.
+              </div>
+              <div className="module-card__tags">
+                <span className="module-card__tag" style={{ background: 'var(--error-soft)', color: 'var(--error)' }}>
+                  30 Soal
+                </span>
+                <span className="module-card__tag">Praktik Coding</span>
               </div>
             </div>
           </div>
@@ -47,7 +77,7 @@ export default function Home() {
       )}
 
       <h2 className="home__section-title" style={comprehensiveModule ? { marginTop: '2rem' } : {}}>
-        Sesi
+        Materi
       </h2>
 
       <div className="module-grid">

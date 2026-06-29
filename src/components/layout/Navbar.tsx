@@ -5,7 +5,7 @@ import { useTheme } from '../../context/ThemeContext'
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme()
   const { pathname } = useLocation()
-  const inModule = pathname !== '/'
+  const isHome = pathname === '/'
 
   return (
     <nav className="navbar">
@@ -15,9 +15,9 @@ export default function Navbar() {
       </Link>
 
       <div className="navbar__right">
-        {inModule && (
+        {!isHome && (
           <Link to="/" className="navbar__link">
-            Semua Modul
+            Dashboard
           </Link>
         )}
         <button
